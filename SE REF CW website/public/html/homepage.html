@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIS Home Page</title>
+    <link rel="stylesheet" href="/css/homepage_styles.css">
+</head>
+
+<body>
+    <header>
+        <a href="/html/homepage.html">
+            <div class="logo-container">
+                <img src="/images/company_logo.jpg">
+                <h1>Exam Invigilation System</h1>
+            </div>
+        </a>
+    </header>
+
+    <main>
+        <h1>Current Exams</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Exam Name</th>
+                        <th>Module Name</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="examData">
+                    <!-- Rows will be dynamically added here from the database -->
+                    <!-- More rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+        <div class="button-container">
+            <button class="add-button shine-button">+ Add Exam</button>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Logic for fetching and displaying data
+    fetch('/api/exams')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('examData');
+            
+            data.forEach(exam => {
+                const row = document.createElement('tr');
+                
+                // Function to create clickable cells
+                const createClickableCell = (text, examId) => {
+                    const cell = document.createElement('td');
+                    const link = document.createElement('a');
+                    link.href = `exam_details.html?id=${examId}`;
+                    link.textContent = text;
+                    cell.appendChild(link);
+                    return cell;
+                };
+
+                const idCell = createClickableCell(exam.id, exam.id);
+                row.appendChild(idCell);
+
+                const dateCell = createClickableCell(exam.exam_date, exam.id);
+                row.appendChild(dateCell);
+
+                const nameCell = createClickableCell(exam.exam_name, exam.id);
+                row.appendChild(nameCell);
+
+                const moduleCell = createClickableCell(exam.module_name, exam.id);
+                row.appendChild(moduleCell);
+
+                const startTimeCell = createClickableCell(exam.start_time, exam.id);
+                row.appendChild(startTimeCell);
+
+                const endTimeCell = createClickableCell(exam.end_time, exam.id);
+                row.appendChild(endTimeCell);
+
+                // Delete button creation and event attachment
+                const deleteCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'delete-button';
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', () => {
+                    fetch(`/api/exams/${exam.id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if(result.success) {
+                            alert(result.message);
+                            location.reload();  // Refresh the page
+                        } else {
+                            alert('Failed to delete the exam. Try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('There was an error deleting the exam:', error);
+                    });
+                });
+                deleteCell.appendChild(deleteButton);
+                row.appendChild(deleteCell);
+
+                // Append the row to the table body
+                tableBody.appendChild(row);
+            });
+            
+            // Logic to handle "+ Add Exam" button
+            const addButton = document.querySelector('.add-button');
+            addButton.addEventListener('click', () => {
+                // Redirect to the add_exam page
+                window.location.href = '/add_exam';
+            });
+
+        })
+        .catch(error => {
+            console.error('There was an error fetching the exams:', error);
+        });
+});
+
+    </script>
+
+</body>
+
+</html>

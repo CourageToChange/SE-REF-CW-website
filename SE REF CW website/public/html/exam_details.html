@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Details</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/css/exam_details_styles.css">
+</head>
+
+<body>
+    <header onclick="goBack()">
+        <div class="logo-container">
+            <img src="/images/company_logo.jpg"> <!-- Removed the extra '<' here -->
+            <h1>Exam Details</h1>
+            <div id="current-time"></di>
+        </div>
+    </header>
+
+<main>
+    <div class="timer-container">
+        <h2>Module Name: <span id="moduleName">Sample Module</span></h2>
+        <h2>Exam Name: <span id="examName">Sample Exam</span></h2>
+        <h2>Start Time: <span id="startTime">09:00 AM</span></h2>
+        <h2>End Time: <span id="endTime">11:00 AM</span></h2>
+        <div id="timer">00:00:00</div>
+    </div>
+        <div class="exam-rules-container">
+            <h2>Exam Rules:</h2>
+            <p>Sample exam rules and instructions go here...</p>
+        </div>
+        <div class="buttons-container">
+            <button class="go-back-button" onclick="goBack()">Homepage</button>
+            <button class="log-issue-button" onclick="logIssue()">Log an Issue</button>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <script src="/js/exam_details.js"></script>
+    <script>
+        // Extracting the 'id' query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const examId = urlParams.get('id');
+        // Fetching exam details using the examId
+    fetch(`/api/exams/${examId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the page with fetched data
+            document.getElementById('examName').textContent = data.exam_name;
+            document.getElementById('moduleName').textContent = data.module_name;
+            document.getElementById('startTime').textContent = data.start_time;
+            document.getElementById('endTime').textContent = data.end_time;
+        })
+        .catch(error => {
+            console.error('Error fetching exam details:', error);
+        });
+        function goBack() {
+            window.location.href = "/Users/nobin/Desktop/SE REF CW website/Homepage/index.html";
+        }
+
+        function logIssue() {
+            window.location.href = "../log_issue/log_issue.html";
+        }
+
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            let ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12;
+            h = h ? h : 12; // the hour '0' should be '12'
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('current-time').innerHTML =
+            h + ":" + m + ":" + s + " " + ampm;
+            const t = setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+
+        window.onload = function() {
+            startTime();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Issue</title>
+    <link rel="stylesheet" href="..//html/homepage.html">
+    <link rel="stylesheet" href="/css/log_issue_styles.css">
+</head>
+
+<body>
+    <header>
+        <a href="/Users/nobin/Desktop/SE REF CW website/Homepage/index.html">
+            <<img src="/images/company_logo.jpg"
+            class="logo">
+        </a>
+    </header>
+
+    <main>
+        <h1>Log Issue</h1>
+        <form id="logIssueForm">
+            <div>
+                <label for="issueID">Issue ID:</label>
+                <input type="text" id="issueID" name="issueID" required>
+            </div>
+            <div>
+                <label for="incident">Incident:</label>
+                <textarea id="incident" name="incident" rows="5" maxlength="1000" required></textarea>
+            </div>
+            <div class="button-container">
+                <button type="button" class="go-back-button" onclick="goBackAnimation()">Go Back</button>
+                <button type="button" class="submit-button" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <script src="/Users/nobin/Desktop/SE REF CW website/public/js/log_issue.js"></script>
+</body>
+
+</html>

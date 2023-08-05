@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F4EB;
+    color: #1d3747;
+}
+
+header {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo-container img {
+    width: 60px;
+}
+
+.logo-container h1 {
+    color: #F6F4EB;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #1d3747;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #91C8E4;
+}
+
+.delete-button {
+    background-color: #749BC2;
+    color: #F6F4EB;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.add-button {
+    background-color: #91C8E4;
+    color: #F6F4EB;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.add-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
+footer {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+    color: #F6F4EB;
+}

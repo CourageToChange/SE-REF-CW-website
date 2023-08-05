@@ -1,0 +1,102 @@
+/* log_issue_styles.css (for log_issue.html) */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F4EB;
+    color: #1d3747;
+}
+
+header {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 60px;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #1d3747;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.go-back-button,
+.submit-button {
+    background-color: #91C8E4;
+    color: #F6F4EB;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.go-back-button::after,
+.submit-button::after {
+    content: "";
+    background: #749BC2;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.go-back-button:active::after,
+.submit-button:active::after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+footer {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+    color: #F6F4EB;
+}

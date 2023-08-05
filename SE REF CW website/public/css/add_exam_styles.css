@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F4EB;
+    color: #1d3747;
+}
+
+header {
+    background-color: #4682A9;
+    padding: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.logo-container img {
+    max-width: 50px;
+    margin-right: 20px;
+}
+
+.logo-container h1 {
+    color: #F6F4EB;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+
+
+
+
+
+.loader-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.loader-container.show {
+    display: flex;
+    opacity: 1;
+}
+
+.spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+main {
+    padding: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #4682A9;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"],
+.go-back-button {
+    background-color: #91C8E4;
+    color: #F6F4EB;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.go-back-button {
+    background-color: #749BC2;
+}
+
+button[type="submit"]:hover,
+.go-back-button:hover {
+    opacity: 0.8;
+}
+
+
+
+footer {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+    color: #F6F4EB;
+}

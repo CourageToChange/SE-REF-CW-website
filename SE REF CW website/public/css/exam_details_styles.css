@@ -1,0 +1,124 @@
+/* exam_details_styles.css (for exam_details.html) */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F4EB;
+}
+
+header {
+    background-color: #4682A9;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logo-container img {
+    width: 50px;
+    cursor: pointer;
+}
+
+.logo-container h1 {
+    color: #F6F4EB;
+    font-size: 1.5em;
+    margin: 0;
+    cursor: pointer;
+}
+
+#current-time {
+    font-size: 1.2em;
+    color: #F6F4EB;
+    font-weight: bold;
+}
+
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #1d3747;
+    margin-bottom: 20px;
+}
+
+.timer-container {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #91C8E4;
+    border-radius: 10px;
+}
+
+#liveClock, #timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #749BC2;
+    animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    50% {
+        color: #1d3747;
+    }
+}
+
+.exam-rules-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-rules-container h2 {
+    color: #1d3747;
+    margin-bottom: 10px;
+}
+
+.exam-rules-container p {
+    line-height: 1.6;
+}
+
+.buttons-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.go-back-button,
+.log-issue-button {
+    background-color: #749BC2;
+    color: #F6F4EB;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.log-issue-button {
+    background-color: #1d3747;
+    margin-left: 10px;
+}
+
+.go-back-button:hover,
+.log-issue-button:hover {
+    opacity: 0.8;
+}
+
+footer {
+    background-color: #4682A9;
+    padding: 20px;
+    text-align: center;
+    color: #F6F4EB;
+}

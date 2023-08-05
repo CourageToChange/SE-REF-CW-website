@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Exam</title>
+    <link rel="stylesheet" href="/public/css/add_exam_styles.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="/html/homepage.html">
+            <div class="logo-container">
+                <img src="/images/company_logo.jpg">
+                <h1>EIS</h1>
+            </div>
+        </a>
+    </header>
+
+    <main>
+        <h1>Add Exam</h1>
+        <form id="addExamForm" action="/exam" method="POST">
+            <div>
+                <label for="moduleName">Module Name:</label>
+                <input type="text" id="moduleName" name="moduleName" required>
+            </div>
+            <div>
+                <label for="examName">Exam Name:</label>
+                <input type="text" id="examName" name="examName" required>
+            </div>
+            <div>
+                <label for="examDate">Exam Date:</label>
+                <input type="date" id="examDate" name="examDate" required>
+            </div>
+            <div>
+                <label for="timeZone">Time Zone:</label>
+                <input type="text" id="timeZone" name="timeZone" required>
+            </div>
+            <div>
+                <label for="startTime">Start Time:</label>
+                <input type="time" id="startTime" name="startTime" required>
+            </div>
+            <div>
+                <label for="endTime">End Time:</label>
+                <input type="time" id="endTime" name="endTime" required>
+            </div>
+            <div>
+                <label for="examRules">Exam Rules:</label>
+                <textarea id="examRules" name="examRules" rows="5" maxlength="500" required></textarea>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="submit-button shine-button">Submit</button>
+            </div>
+        </form>
+        <div id="loader" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <script src="/public/js/add_exam_scripts.js"></script>
+</body>
+
+</html>
